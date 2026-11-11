@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>CardForge – fiszki Anki na medycynę</title>
-<meta name="description" content="Gotowe talie Anki pod bazy WUM: patomorfologia, mikrobiologia, fizjologia, biochemia i LEK. Darmowa próbka.">
+<meta name="description" content="Gotowe talie Anki pod bazy WUM: patomorfologia, mikrobiologia, fizjologia, biochemia, immunologia i LEK. Darmowa próbka.">
 <style>
 :root{
   --bg:#000; --fg:#f5f5f7; --muted:#86868b; --card:#1d1d1f; --line:#2c2c2e;
@@ -92,7 +92,7 @@ h2{font-size:clamp(36px,5.2vw,64px);line-height:1.05;letter-spacing:-.03em;font-
 .save{display:inline-block;background:rgba(41,151,255,.15);color:var(--blue);border-radius:980px;padding:4px 12px;font-size:13px;font-weight:600;margin-top:12px}
 /* results */
 .res{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:60px}
-@media(max-width:860px){.res{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:860px){.res{grid-template-columns:1fr!important}}
 .r{border-radius:28px;padding:34px 22px;background:var(--card);text-align:center}
 .r .n{font-size:clamp(40px,5vw,58px);font-weight:700;letter-spacing:-.03em}
 .r .l{color:var(--muted);margin-top:8px;font-size:15px;line-height:1.35}
@@ -130,7 +130,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
     <div>
       <div class="eyebrow">Fiszki Anki dla studentów medycyny</div>
       <h1>Ucz się raz.<br><span class="grad">Pamiętaj na egzaminie.</span></h1>
-      <p class="lead">Gotowe talie pod bazy WUM: patomorfologia, mikrobiologia, fizjologia, biochemia i LEK. Krótkie pytania, kolory, zero lania wody.</p>
+      <p class="lead">Gotowe talie pod bazy WUM: patomorfologia, mikrobiologia, fizjologia, biochemia, immunologia i LEK. Krótkie pytania, kolory, zero lania wody.</p>
       <div class="cta">
         <a class="btn primary" href="https://cardforge.gumroad.com/l/probka">Pobierz próbkę za 0 zł</a>
         <a class="btn ghost" href="#talie">Zobacz talie</a>
@@ -150,10 +150,10 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
 
 <section class="center">
   <div class="wrap">
-    <h2 class="reveal">27 000+ fiszek.<br>Ułożonych pod kolokwia.</h2>
+    <h2 class="reveal">30 000+ fiszek.<br>Ułożonych pod kolokwia.</h2>
     <p class="sub reveal">Każda talia idzie w kolejności zajęć i baz z poprzednich lat. Importujesz plik i zaczynasz powtórki tego samego dnia.</p>
     <div class="stats">
-      <div class="stat reveal"><div class="n">5</div><div class="l">przedmiotów: pato, mikro, fizjo, biochemia, LEK</div></div>
+      <div class="stat reveal"><div class="n">6</div><div class="l">przedmiotów: pato, mikro, fizjo, biochemia, immuno, LEK</div></div>
       <div class="stat reveal"><div class="n">1 fakt</div><div class="l">na fiszkę – bez ścian tekstu</div></div>
       <div class="stat reveal"><div class="n">0 zł</div><div class="l">za każdą aktualizację talii</div></div>
     </div>
@@ -224,7 +224,8 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
   <div class="wrap">
     <h2 class="reveal">Zrobione przez kogoś,<br>kto z nich zdał.</h2>
     <p class="sub reveal">Te talie to moje własne fiszki z kolejnych lat studiów na WUM.</p>
-    <div class="res" style="grid-template-columns:repeat(2,1fr);max-width:640px;margin-left:auto;margin-right:auto">
+    <div class="res" style="grid-template-columns:repeat(3,1fr);max-width:900px;margin-left:auto;margin-right:auto">
+      <div class="r reveal"><div class="n" style="color:#ff7ad9">5</div><div class="l">egzamin z immunologii</div></div>
       <div class="r reveal"><div class="n" style="color:var(--fizjo)">4,25</div><div class="l">średnia z 3 lat studiów na WUM</div></div>
       <div class="r reveal"><div class="n" style="color:var(--lek)">Top 10</div><div class="l">studentów roku ze szpilek na egzaminie z anatomii (110/120)</div></div>
     </div>
@@ -278,6 +279,7 @@ const cards=[
  ["MIKROBIOLOGIA","#a06eff","Odczyn <b>VP</b> u Klebsiella pneumoniae?","<b>Dodatni</b>"],
  ["FIZJOLOGIA","#46a0ff","Jak zmieniają się <b>T3 i T4</b> w ciąży?","<b>Rosną</b> – estrogeny zwiększają TBG"],
  ["BIOCHEMIA","#3cd296","Jedyne źródło energii <b>erytrocytu</b>?","<b>Glukoza</b> – brak mitochondriów"],
+ ["IMMUNOLOGIA","#ff7ad9","Co rozpoznają <b>komórki NK</b>?","<b>Brak MHC I</b> na komórce"],
  ["LEK","#ffaa3c","Lek z wyboru we <b>wstrząsie anafilaktycznym</b>?","<b>Adrenalina</b> domięśniowo"]];
 let k=0; const t=document.getElementById('ptag'),q=document.getElementById('pq'),a=document.getElementById('pa');
 function show(){const c=cards[k%cards.length];t.textContent=c[0];t.style.color=c[1];q.innerHTML=c[2];a.innerHTML=c[3];a.classList.remove('show');setTimeout(()=>a.classList.add('show'),1600);k++}
