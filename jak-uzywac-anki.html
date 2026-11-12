@@ -104,8 +104,8 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
   <div class="wrap" style="position:relative">
     <div class="eyebrow">Poradnik</div>
     <h1>Ucz się krócej.<br><span class="grad">Pamiętaj dłużej.</span></h1>
-    <p class="lead">Tak używam Anki na 3. roku medycyny: trzy przedmioty naraz, codziennie powtórki i wszystkie zaliczenia za pierwszym razem. Poniżej moje ustawienia i zasady, dzięki którym nie siedzę nad kartami całego dnia.</p>
-    <div class="facts"><span class="fact"><b>~900</b> powtórek dziennie</span><span class="fact"><b>30–40</b> nowych kart na przedmiot</span><span class="fact"><b>90%</b> docelowej pamięci</span></div>
+    <p class="lead">Tak używam Anki na 3. roku medycyny, ucząc się kilku przedmiotów naraz. Wszystkie zaliczenia zdałem za pierwszym razem. Poniżej moje ustawienia i zasady, które oszczędzają najwięcej czasu.</p>
+    <div class="facts"><span class="fact"><b>FSRS</b> – nowy algorytm Anki</span><span class="fact"><b>30–40</b> nowych kart na przedmiot</span><span class="fact"><b>90%</b> docelowej pamięci</span></div>
   </div>
 </header>
 
@@ -133,10 +133,11 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
       <div class="row"><div class="k">Kroki ponownej nauki</div><div class="v">10m</div><div class="w">Zapomniana karta wraca jeszcze w tej samej sesji.</div></div>
       <div class="row"><div class="k">Próg pijawki</div><div class="v">8</div><div class="w">Po 8 pomyłkach karta dostaje tag. Wtedy czytam temat raz porządnie, zamiast klikać ją w nieskończoność.</div></div>
       <div class="row"><div class="k">Maks. interwał</div><div class="v">180 dni</div><div class="w">Dla przedmiotów z egzaminem w tym roku. Każda karta wróci przed egzaminem przynajmniej raz.</div></div>
+      <div class="row"><div class="k">Algorytm</div><div class="v">FSRS</div><div class="w">Włączony. Lepiej niż stary algorytm dobiera odstępy, więc przy tej samej pamięci zwykle jest mniej powtórek.</div></div>
       <div class="row"><div class="k">Docelowa pamięć</div><div class="v">90%</div><div class="w">Rozsądny kompromis. Wyżej oznacza dużo więcej powtórek za niewielki zysk.</div></div>
       <div class="row"><div class="k">Kolejność</div><div class="v">powtórki → nowe</div><div class="w">Najpierw to, co już masz, potem nowe karty.</div></div>
     </div>
-    <p class="path reveal">Gdzie to zmienić: <b>koło zębate przy talii → Opcje</b>. Wskazówka: w ustawieniach Anki możesz włączyć algorytm <b>FSRS</b>, który zwykle daje mniej powtórek przy tej samej pamięci.</p>
+    <p class="path reveal">Gdzie to zmienić: <b>koło zębate przy talii → Opcje</b>. FSRS włączasz w tych samych opcjach, w sekcji <b>FSRS</b>, a potem klikasz „Optymalizuj”.</p>
   </div>
 </section>
 
@@ -170,9 +171,9 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
       <div class="out" aria-live="polite">
         <div><strong id="rn">32</strong><span>nowych kart dziennie</span></div>
         <div><strong id="rr">~320</strong><span>powtórek dziennie po kilku tygodniach</span></div>
-        <div><strong id="rt">~50 min</strong><span>dziennie na ten przedmiot</span></div>
+        <div><strong id="rt">~1 h 36 min</strong><span>dziennie na ten przedmiot</span></div>
       </div>
-      <p class="note">To szacunek: około 10 powtórek dziennie na każdą nową kartę dziennie, około 8 sekund na powtórkę i 20 sekund na nową kartę. U każdego wychodzi trochę inaczej.</p>
+      <p class="note">To szacunek: około 10 powtórek dziennie na każdą nową kartę dziennie, około 15 sekund na powtórkę i 30 sekund na nową kartę (tyle wychodzi mi średnio). U każdego wychodzi trochę inaczej.</p>
     </div>
   </div>
 </section>
@@ -184,7 +185,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
       <details><summary>Mam kilkaset zaległych powtórek. Co robić?</summary><p>Ustaw 0 nowych kart, dopóki nie wyjdziesz na zero, i rozłóż zaległości na 2–3 dni. Nie kasuj postępu i nie resetuj talii. Zaległości znikają szybciej, niż się wydaje.</p></details>
       <details><summary>Czy mogę zmieniać karty?</summary><p>Tak. W trakcie nauki kliknij Edytuj i dopisz coś po swojemu. To Twoja kopia talii.</p></details>
       <details><summary>Znam już część materiału. Muszę robić wszystkie karty?</summary><p>Nie. Kartę, którą znasz na pewno, kliknij Easy albo zawieś. Zostaną te, które naprawdę musisz powtórzyć.</p></details>
-      <details><summary>Ile czasu dziennie to zajmuje?</summary><p>Zależy od liczby nowych kart. Przy 30 nowych dziennie na jeden przedmiot to zwykle 40–60 minut, w tym sporo z telefonu w przerwach. Policz w kalkulatorze wyżej.</p></details>
+      <details><summary>Ile czasu dziennie to zajmuje?</summary><p>Zależy głównie od liczby nowych kart: mniej nowych to mniej powtórek. Dlatego włączaj tylko działy z najbliższego kolosa. Sporo powtórek da się zrobić na telefonie w przerwach. Policz swój przypadek w kalkulatorze wyżej.</p></details>
       <details><summary>Komputer czy telefon?</summary><p>Oba. Na komputerze import i zmiany ustawień, na telefonie codzienne powtórki. Synchronizacja przez AnkiWeb przenosi wszystko w obie strony.</p></details>
     </div>
   </div>
@@ -209,7 +210,7 @@ const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.targ
 document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%4)*70+'ms';io.observe(el)});
 const $=id=>document.getElementById(id);
 function calc(){const c=+$('c').value,d=+$('d').value,b=+$('b').value;$('oc').textContent=c;$('od').textContent=d;$('ob').textContent=b;
- const days=Math.max(1,d-b),n=Math.ceil(c/days),r=n*10,t=Math.round((r*8+n*20)/60);
+ const days=Math.max(1,d-b),n=Math.ceil(c/days),r=n*10,t=Math.round((r*15+n*30)/60);
  $('rn').textContent=n;$('rr').textContent='~'+r;$('rt').textContent=t>=60?('~'+Math.floor(t/60)+' h '+(t%60)+' min'):('~'+t+' min');}
 ['c','d','b'].forEach(i=>$(i).addEventListener('input',calc));calc();
 </script>
