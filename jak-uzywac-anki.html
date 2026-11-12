@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jak używać Anki – CardForge</title>
+<meta name="description" content="Jak uczyć się z Anki na medycynie jak najmniej czasu: moje ustawienia, zasady i kalkulator nowych kart. Poradnik od studenta 3. roku.">
+<style>
+:root{
+  --bg:#000; --fg:#f5f5f7; --muted:#86868b; --card:#1d1d1f; --line:#2c2c2e;
+  --pato:#ff466f; --mikro:#a06eff; --fizjo:#46a0ff; --bioch:#3cd296; --lek:#ffaa3c; --blue:#2997ff;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--fg);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Helvetica Neue",Arial,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+/* nav */
+nav{position:sticky;top:0;z-index:50;background:rgba(0,0,0,.72);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid rgba(255,255,255,.08)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:52px}
+.logo{font-weight:700;letter-spacing:-.02em;font-size:18px}
+.logo span{color:var(--muted);font-weight:500}
+.links{display:flex;gap:26px;font-size:13px;color:#d2d2d7}
+.links a:hover{color:#fff}
+.pill{background:var(--blue);color:#fff;border-radius:980px;padding:7px 15px;font-size:13px;font-weight:600;white-space:nowrap}
+@media(max-width:720px){.links{display:none}}
+
+section{padding:100px 0;position:relative}
+.center{text-align:center}
+h2{font-size:clamp(34px,5vw,58px);line-height:1.05;letter-spacing:-.03em;font-weight:700}
+.sub{color:var(--muted);font-size:clamp(17px,2vw,21px);line-height:1.45;margin-top:18px;max-width:680px;font-weight:500}
+.center .sub{margin-left:auto;margin-right:auto}
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+.glow{position:absolute;border-radius:50%;filter:blur(110px);opacity:.5;pointer-events:none}
+.btn{display:inline-block;border-radius:980px;padding:14px 26px;font-size:17px;font-weight:600;transition:transform .2s ease}
+.btn:hover{transform:scale(1.03)}
+.btn.primary{background:var(--blue);color:#fff}
+.btn.ghost{color:var(--blue);border:1px solid var(--blue)}
+.hero{padding:110px 0 60px;text-align:center;position:relative;overflow:hidden}
+.eyebrow{font-size:15px;font-weight:600;color:var(--bioch);margin-bottom:14px}
+h1{font-size:clamp(42px,7vw,80px);line-height:1.03;letter-spacing:-.035em;font-weight:700}
+h1 .grad{background:linear-gradient(90deg,#3cd296,#46a0ff 50%,#a06eff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{font-size:clamp(18px,2.2vw,22px);line-height:1.4;color:var(--muted);margin:22px auto 0;max-width:640px;font-weight:500}
+.facts{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:34px}
+.fact{background:var(--card);border-radius:980px;padding:10px 18px;font-size:15px;font-weight:600}
+.fact b{color:var(--bioch)}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:56px}
+.step{background:var(--card);border-radius:26px;padding:28px 24px}
+.step i{font-style:normal;display:inline-grid;place-items:center;width:38px;height:38px;border-radius:50%;background:#fff;color:#000;font-weight:800}
+.step h3{font-size:21px;margin-top:16px;letter-spacing:-.01em}
+.step p{color:var(--muted);font-size:16px;line-height:1.5;margin-top:8px}
+.set{max-width:860px;margin:56px auto 0;background:var(--card);border-radius:28px;overflow:hidden}
+.row{display:grid;grid-template-columns:1.1fr .7fr 1.4fr;gap:16px;padding:20px 26px;border-bottom:1px solid var(--line);align-items:baseline}
+.row:last-child{border-bottom:0}
+.row .k{font-weight:600;font-size:17px}
+.row .v{font-weight:700;font-size:20px;color:var(--bioch);font-variant-numeric:tabular-nums}
+.row .w{color:var(--muted);font-size:15px;line-height:1.45}
+@media(max-width:720px){.row{grid-template-columns:1fr;gap:4px}}
+.path{color:var(--muted);font-size:15px;text-align:center;margin-top:18px}
+.path b{color:var(--fg)}
+.rules{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;margin-top:56px}
+.rule{border:1px solid var(--line);border-radius:26px;padding:28px}
+.rule .n{font-size:14px;font-weight:700;color:var(--blue);letter-spacing:.06em}
+.rule h3{font-size:22px;margin-top:8px;letter-spacing:-.01em;line-height:1.2}
+.rule p{color:var(--muted);font-size:16px;line-height:1.5;margin-top:10px}
+.btns{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
+.btns span{border-radius:10px;padding:8px 14px;font-size:14px;font-weight:700;color:#fff}
+.calc{max-width:860px;margin:56px auto 0;background:var(--card);border-radius:30px;padding:32px;display:grid;grid-template-columns:1fr 1fr;gap:30px}
+@media(max-width:760px){.calc{grid-template-columns:1fr}}
+.calc label{display:block;font-size:15px;color:var(--muted);font-weight:600;margin-bottom:8px}
+.calc .f{margin-bottom:22px}
+.calc input[type=range]{width:100%;accent-color:var(--blue)}
+.calc output{float:right;color:var(--fg);font-weight:700}
+.out{display:grid;gap:14px;align-content:start}
+.out div{background:#000;border-radius:20px;padding:20px 22px}
+.out strong{display:block;font-size:40px;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.out span{color:var(--muted);font-size:15px}
+.note{color:var(--muted);font-size:13px;line-height:1.5;grid-column:1/-1}
+details{border-bottom:1px solid var(--line);padding:24px 0}
+summary{cursor:pointer;font-size:20px;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:20px}
+summary::-webkit-details-marker{display:none}
+summary:after{content:"+";color:var(--muted);font-weight:400;font-size:26px;line-height:1;transition:transform .3s}
+details[open] summary:after{transform:rotate(45deg)}
+details p{color:var(--muted);font-size:17px;line-height:1.55;margin-top:14px}
+.faq{max-width:820px;margin:40px auto 0}
+.final{padding:130px 0;text-align:center;overflow:hidden}
+.final .btns2{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:30px}
+footer{border-top:1px solid var(--line);padding:30px 0 50px;color:var(--muted);font-size:13px;line-height:1.7}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <a class="logo" href="./">CardForge <span>· Anki</span></a>
+  <div class="links"><a href="./#talie">Talie</a><a href="#start">Start</a><a href="#ustawienia">Ustawienia</a><a href="#zasady">Zasady</a><a href="#kalkulator">Kalkulator</a></div>
+  <a class="pill" href="https://cardforge.gumroad.com/l/probka">Darmowa próbka</a>
+</div></nav>
+
+<header class="hero">
+  <div class="glow" style="width:520px;height:520px;background:#3cd296;left:-180px;top:-160px;opacity:.35"></div>
+  <div class="glow" style="width:520px;height:520px;background:#a06eff;right:-180px;top:40px;opacity:.3"></div>
+  <div class="wrap" style="position:relative">
+    <div class="eyebrow">Poradnik</div>
+    <h1>Ucz się krócej.<br><span class="grad">Pamiętaj dłużej.</span></h1>
+    <p class="lead">Tak używam Anki na 3. roku medycyny: trzy przedmioty naraz, codziennie powtórki i wszystkie zaliczenia za pierwszym razem. Poniżej moje ustawienia i zasady, dzięki którym nie siedzę nad kartami całego dnia.</p>
+    <div class="facts"><span class="fact"><b>~900</b> powtórek dziennie</span><span class="fact"><b>30–40</b> nowych kart na przedmiot</span><span class="fact"><b>90%</b> docelowej pamięci</span></div>
+  </div>
+</header>
+
+<section id="start">
+  <div class="wrap">
+    <div class="center"><h2 class="reveal">Start w 10 minut.</h2>
+    <p class="sub reveal">Nie znasz Anki? To wszystko, czego potrzebujesz na początek.</p></div>
+    <div class="steps">
+      <div class="step reveal"><i>1</i><h3>Zainstaluj Anki</h3><p>Na komputer za darmo z apps.ankiweb.net. Na telefon: AnkiDroid (darmowy) albo AnkiMobile na iPhone'a (płatny).</p></div>
+      <div class="step reveal"><i>2</i><h3>Załóż konto AnkiWeb</h3><p>Darmowe. Dzięki niemu karty i postęp synchronizują się między komputerem a telefonem.</p></div>
+      <div class="step reveal"><i>3</i><h3>Zaimportuj talię</h3><p>Na komputerze: Plik → Importuj i wybierz plik .apkg. Na telefonie wystarczy otworzyć plik w aplikacji Anki.</p></div>
+      <div class="step reveal"><i>4</i><h3>Ustaw i synchronizuj</h3><p>Przepisz ustawienia z tabeli niżej, kliknij Synchronizuj i możesz zaczynać.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="ustawienia" style="background:linear-gradient(#000,#0b0b0d 40%,#000)">
+  <div class="wrap">
+    <div class="center"><h2 class="reveal">Moje ustawienia.</h2>
+    <p class="sub reveal">Dokładnie takie mam teraz w swoich taliach. Ustawiasz je raz i więcej nie myślisz.</p></div>
+    <div class="set reveal">
+      <div class="row"><div class="k">Nowe karty dziennie</div><div class="v">30–40</div><div class="w">Na jeden przedmiot. Mniej, jeśli masz dużo zajęć. Ważniejsza jest stała liczba niż dużo naraz.</div></div>
+      <div class="row"><div class="k">Maks. powtórek dziennie</div><div class="v">9999</div><div class="w">Czyli bez limitu. Limit tylko chowa zaległości, a one i tak wracają.</div></div>
+      <div class="row"><div class="k">Kroki nauki</div><div class="v">6m</div><div class="w">Jeden krok. Nowa karta wraca po kilku minutach, a potem już następnego dnia.</div></div>
+      <div class="row"><div class="k">Kroki ponownej nauki</div><div class="v">10m</div><div class="w">Zapomniana karta wraca jeszcze w tej samej sesji.</div></div>
+      <div class="row"><div class="k">Próg pijawki</div><div class="v">8</div><div class="w">Po 8 pomyłkach karta dostaje tag. Wtedy czytam temat raz porządnie, zamiast klikać ją w nieskończoność.</div></div>
+      <div class="row"><div class="k">Maks. interwał</div><div class="v">180 dni</div><div class="w">Dla przedmiotów z egzaminem w tym roku. Każda karta wróci przed egzaminem przynajmniej raz.</div></div>
+      <div class="row"><div class="k">Docelowa pamięć</div><div class="v">90%</div><div class="w">Rozsądny kompromis. Wyżej oznacza dużo więcej powtórek za niewielki zysk.</div></div>
+      <div class="row"><div class="k">Kolejność</div><div class="v">powtórki → nowe</div><div class="w">Najpierw to, co już masz, potem nowe karty.</div></div>
+    </div>
+    <p class="path reveal">Gdzie to zmienić: <b>koło zębate przy talii → Opcje</b>. Wskazówka: w ustawieniach Anki możesz włączyć algorytm <b>FSRS</b>, który zwykle daje mniej powtórek przy tej samej pamięci.</p>
+  </div>
+</section>
+
+<section id="zasady">
+  <div class="wrap">
+    <div class="center"><h2 class="reveal">7 zasad, żeby uczyć się jak najmniej.</h2>
+    <p class="sub reveal">Ustawienia to połowa. Druga połowa to to, jak klikasz.</p></div>
+    <div class="rules">
+      <div class="rule reveal"><div class="n">01</div><h3>Włączaj tylko najbliższy kolos</h3><p>Każda talia jest podzielona na działy. Ucz się tylko tych, które są na najbliższym kolokwium. Resztę zawieś i odwieś, kiedy przyjdzie ich kolej.</p></div>
+      <div class="rule reveal"><div class="n">02</div><h3>Powtórki codziennie, bez wyjątków</h3><p>Opuszczony dzień to podwójna porcja jutro. Jeśli masz gorszy dzień, zrób same powtórki, a nowe karty sobie odpuść.</p></div>
+      <div class="rule reveal"><div class="n">03</div><h3>Tylko dwa przyciski</h3><p>Pamiętasz – Good. Nie pamiętasz – Again. Hard i Easy prawie nie używam. Bądź uczciwy, bo Anki planuje na podstawie Twoich odpowiedzi.</p>
+        <div class="btns"><span style="background:#e5484d">Again</span><span style="background:#30a46c">Good</span></div></div>
+      <div class="rule reveal"><div class="n">04</div><h3>Nie myśl dłużej niż kilka sekund</h3><p>Nie wiesz od razu? Odsłoń odpowiedź i kliknij Again. Minuta wpatrywania się w kartę niczego nie zmienia, a zjada czas.</p></div>
+      <div class="rule reveal"><div class="n">05</div><h3>Stała liczba nowych kart</h3><p>Lepiej 30 codziennie niż 150 w niedzielę. Każde 10 nowych kart dziennie to po kilku tygodniach około 100 powtórek dziennie. Dzisiejsze nowe karty to Twoje jutrzejsze powtórki.</p></div>
+      <div class="rule reveal"><div class="n">06</div><h3>Pijawka? Zrozum, nie wkuwaj</h3><p>Jeśli karta wraca w kółko, przeczytaj ten temat raz w podręczniku albo poproś kogoś o wyjaśnienie. Potem karta wchodzi sama.</p></div>
+      <div class="rule reveal"><div class="n">07</div><h3>Telefon zamiast przerw</h3><p>Tramwaj, kolejka, przerwa między zajęciami. 10 minut tu i tam to często połowa dziennych powtórek.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="kalkulator" style="background:linear-gradient(#000,#0b0b0d 50%,#000)">
+  <div class="wrap">
+    <div class="center"><h2 class="reveal">Ile nowych kart dziennie?</h2>
+    <p class="sub reveal">Podaj, ile kart masz do kolosa i ile zostało dni. Kalkulator zostawia tydzień na same powtórki.</p></div>
+    <div class="calc reveal">
+      <div>
+        <div class="f"><label>Karty do przerobienia <output id="oc">1200</output></label><input id="c" type="range" min="100" max="6000" step="50" value="1200"></div>
+        <div class="f"><label>Dni do kolosa <output id="od">45</output></label><input id="d" type="range" min="10" max="180" step="1" value="45"></div>
+        <div class="f"><label>Dni na same powtórki przed kolosem <output id="ob">7</output></label><input id="b" type="range" min="0" max="21" step="1" value="7"></div>
+      </div>
+      <div class="out" aria-live="polite">
+        <div><strong id="rn">32</strong><span>nowych kart dziennie</span></div>
+        <div><strong id="rr">~320</strong><span>powtórek dziennie po kilku tygodniach</span></div>
+        <div><strong id="rt">~50 min</strong><span>dziennie na ten przedmiot</span></div>
+      </div>
+      <p class="note">To szacunek: około 10 powtórek dziennie na każdą nową kartę dziennie, około 8 sekund na powtórkę i 20 sekund na nową kartę. U każdego wychodzi trochę inaczej.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2 class="reveal center">Częste problemy.</h2>
+    <div class="faq">
+      <details><summary>Mam kilkaset zaległych powtórek. Co robić?</summary><p>Ustaw 0 nowych kart, dopóki nie wyjdziesz na zero, i rozłóż zaległości na 2–3 dni. Nie kasuj postępu i nie resetuj talii. Zaległości znikają szybciej, niż się wydaje.</p></details>
+      <details><summary>Czy mogę zmieniać karty?</summary><p>Tak. W trakcie nauki kliknij Edytuj i dopisz coś po swojemu. To Twoja kopia talii.</p></details>
+      <details><summary>Znam już część materiału. Muszę robić wszystkie karty?</summary><p>Nie. Kartę, którą znasz na pewno, kliknij Easy albo zawieś. Zostaną te, które naprawdę musisz powtórzyć.</p></details>
+      <details><summary>Ile czasu dziennie to zajmuje?</summary><p>Zależy od liczby nowych kart. Przy 30 nowych dziennie na jeden przedmiot to zwykle 40–60 minut, w tym sporo z telefonu w przerwach. Policz w kalkulatorze wyżej.</p></details>
+      <details><summary>Komputer czy telefon?</summary><p>Oba. Na komputerze import i zmiany ustawień, na telefonie codzienne powtórki. Synchronizacja przez AnkiWeb przenosi wszystko w obie strony.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="glow" style="width:700px;height:400px;background:#3cd296;left:50%;top:50%;transform:translate(-50%,-50%);opacity:.25"></div>
+  <div class="wrap" style="position:relative">
+    <h2 class="reveal">Masz już ustawienia.<br>Teraz karty.</h2>
+    <p class="sub reveal" style="margin-left:auto;margin-right:auto">Sprawdź za darmo, jak wyglądają moje talie w Twoim Anki.</p>
+    <div class="btns2 reveal"><a class="btn primary" href="https://cardforge.gumroad.com/l/probka">Pobierz darmową próbkę</a><a class="btn ghost" href="./#talie">Zobacz talie</a></div>
+  </div>
+</section>
+
+<footer><div class="wrap">
+  <div>CardForge · fiszki Anki na medycynę · Płatności i pliki obsługuje Gumroad</div>
+  <div>Kontakt: cardforge.wum@gmail.com · <a href="https://www.instagram.com/cardforge_anki/">Instagram</a> · <a href="https://www.tiktok.com/@cardforge_anki">TikTok</a></div>
+</div></footer>
+
+<script>
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%4)*70+'ms';io.observe(el)});
+const $=id=>document.getElementById(id);
+function calc(){const c=+$('c').value,d=+$('d').value,b=+$('b').value;$('oc').textContent=c;$('od').textContent=d;$('ob').textContent=b;
+ const days=Math.max(1,d-b),n=Math.ceil(c/days),r=n*10,t=Math.round((r*8+n*20)/60);
+ $('rn').textContent=n;$('rr').textContent='~'+r;$('rt').textContent=t>=60?('~'+Math.floor(t/60)+' h '+(t%60)+' min'):('~'+t+' min');}
+['c','d','b'].forEach(i=>$(i).addEventListener('input',calc));calc();
+</script>
+</body>
+</html>
