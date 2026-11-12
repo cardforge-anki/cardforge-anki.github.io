@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>CardForge – fiszki Anki na medycynę</title>
-<meta name="description" content="Gotowe talie Anki pod bazy WUM: patomorfologia, mikrobiologia, fizjologia, biochemia, immunologia i LEK. Darmowa próbka.">
+<meta name="description" content="Gotowe talie Anki na medycynę: patomorfologia, mikrobiologia, fizjologia, biochemia, immunologia i LEK. Sprawdzone z egzaminami WUM, materiał z podręczników – dla studentów każdej uczelni. Darmowa próbka.">
 <style>
 :root{
   --bg:#000; --fg:#f5f5f7; --muted:#86868b; --card:#1d1d1f; --line:#2c2c2e;
@@ -109,6 +109,15 @@ summary:after{content:"+";color:var(--muted);font-weight:400;font-size:26px;line
 details[open] summary:after{transform:rotate(45deg)}
 details p{color:var(--muted);font-size:17px;line-height:1.55;margin-top:14px;max-width:760px}
 .faq{max-width:820px;margin:50px auto 0}
+.inside{max-width:820px;margin:50px auto 0}
+.inside details p,.inside details li{color:var(--muted);font-size:17px;line-height:1.55}
+.inside ul{margin:12px 0 0;padding-left:20px;display:grid;gap:6px}
+.inside summary small{font-size:15px;color:var(--muted);font-weight:500;margin-left:8px}
+.uni{max-width:820px;margin:56px auto 0;border:1px solid var(--line);border-radius:24px;padding:28px}
+.uni h3{font-size:26px;margin:0 0 12px}
+.uni p{color:var(--muted);font-size:17px;line-height:1.55;margin:10px 0 0}
+.uni b{color:var(--fg,#fff)}
+
 /* final */
 .final{padding:150px 0;text-align:center;overflow:hidden}
 footer{border-top:1px solid var(--line);padding:30px 0 50px;color:var(--muted);font-size:13px;line-height:1.7}
@@ -130,7 +139,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
     <div>
       <div class="eyebrow">Fiszki Anki dla studentów medycyny</div>
       <h1>Ucz się raz.<br><span class="grad">Pamiętaj na egzaminie.</span></h1>
-      <p class="lead">Gotowe talie pod bazy WUM: patomorfologia, mikrobiologia, fizjologia, biochemia, immunologia i LEK. Krótkie pytania, kolory, zero lania wody.</p>
+      <p class="lead">Gotowe talie na medycynę: patomorfologia, mikrobiologia, fizjologia, biochemia, immunologia i LEK. Sprawdzone z 10 latami egzaminów WUM, przydatne na każdej uczelni. Krótkie pytania, kolory, zero lania wody.</p>
       <div class="cta">
         <a class="btn primary" href="https://cardforge.gumroad.com/l/probka">Pobierz próbkę za 0 zł</a>
         <a class="btn ghost" href="#talie">Zobacz talie</a>
@@ -176,7 +185,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
 <section id="talie">
   <div class="wrap">
     <div class="center"><h2 class="reveal">Wybierz swoją talię.</h2>
-    <p class="sub reveal">Robione przez studenta WUM, sprawdzane z bazami z ostatnich lat.</p></div>
+    <p class="sub reveal">Robione przez studenta WUM i sprawdzane z egzaminami z ostatnich lat. Materiał jest z podręczników, więc przydaje się na każdej uczelni medycznej.</p></div>
     <div class="grid">
       <a class="prod reveal" href="https://cardforge.gumroad.com/l/ipfytw"><div class="halo" style="background:var(--pato)"></div>
         <div class="k" style="color:var(--pato)">3 ROK</div><h3>Patomorfologia</h3>
@@ -220,6 +229,49 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
   </div>
 </section>
 
+<section id="co-w-srodku">
+  <div class="wrap">
+    <div class="center"><h2 class="reveal">Co dokładnie kupujesz.</h2>
+    <p class="sub reveal">Każda talia jest podzielona na działy. W Anki włączasz tylko to, czego uczysz się teraz – kolejność dopasujesz do swojego sylabusa.</p></div>
+    <div class="inside">
+      <details><summary><span>Patomorfologia <small>~8400 fiszek · 23 działy</small></span></summary>
+        <ul><li><b>Ogólna:</b> patologia komórki i adaptacje, zapalenia, gojenie, zaburzenia krążenia, immunopatologia, choroby zakaźne, nowotwory.</li>
+        <li><b>Szczegółowa:</b> serce i naczynia, płuca, przewód pokarmowy, wątroba i trzustka, nerki, układ rozrodczy, pierś, endokrynologia, skóra, OUN, głowa i szyja, kości i tkanki miękkie, układ chłonny, patologia dziecięca.</li>
+        <li>Przy każdej chorobie: obraz makro i mikro, markery, powikłania.</li></ul></details>
+      <details><summary><span>Mikrobiologia <small>~3200 fiszek · 20 działów</small></span></summary>
+        <ul><li><b>Ogólna:</b> chorobotwórczość, diagnostyka, sterylizacja i dezynfekcja, antybiotyki i lekooporność.</li>
+        <li><b>Bakteria po bakterii:</b> ziarenkowce, pałeczki Gram(−), prątki, laseczki, beztlenowce, chlamydie, mikoplazmy, riketsje, krętki. Do tego grzyby oraz wirusy DNA i RNA.</li>
+        <li><b>Zakażenia narządowe:</b> oddechowe, moczowe, pokarmowe, OUN, płciowe, szpitalne, odzwierzęce.</li></ul></details>
+      <details><summary><span>Fizjologia <small>~5300 fiszek · 4 bloki</small></span></summary>
+        <ul><li>Cała fizjologia w 4 blokach tematycznych.</li>
+        <li><b>+ ok. 300 fiszek z patofizjologii:</b> urazy OUN i GCS, otępienia, Parkinson, móżdżek, refluks, tarczyca i hormony.</li>
+        <li>Prawie 300 fiszek z obrazkami i schematami.</li></ul></details>
+      <details><summary><span>Biochemia <small>~5000 fiszek · 3 części</small></span></summary>
+        <ul><li>Szlaki metaboliczne rozpisane krok po kroku: enzymy, regulacja, bilans.</li>
+        <li>Ponad 500 fiszek z obrazkami i wzorami.</li>
+        <li>Podział na 3 części, tak jak kolejne kolokwia.</li></ul></details>
+      <details><summary><span>Immunologia <small>~2900 fiszek</small></span></summary>
+        <ul><li>Według podręcznika Gołąba: odporność wrodzona i nabyta, dopełniacz, MHC, limfocyty T i B, przeciwciała, cytokiny.</li>
+        <li>Do tego immunopatologia: nadwrażliwość, autoimmunizacja, niedobory odporności, transplantologia.</li></ul></details>
+      <details><summary><span>LEK <small>~5400 fiszek · 10 dziedzin + bonus</small></span></summary>
+        <ul><li>Choroby wewnętrzne 1372 · pediatria 852 · położnictwo i ginekologia 801 · chirurgia 612 · medycyna rodzinna 478 · psychiatria 406 · medycyna ratunkowa 386 · zdrowie publiczne 189 · bioetyka i prawo 184 · orzecznictwo 99.</li>
+        <li><b>🎁 Bonus:</b> 3035 oficjalnych pytań CEM w Anki (pytanie, odpowiedzi, klucz).</li>
+        <li>LEK jest jeden dla wszystkich uczelni.</li></ul></details>
+      <details><summary><span>Każda talia</span></summary>
+        <ul><li>Plik .apkg – działa w Anki na komputerze, AnkiDroid i AnkiMobile.</li>
+        <li>Jedna rzecz na kartę, maksymalnie 3–4 elementy w odpowiedzi.</li>
+        <li>Kolory: objawy, leczenie, powikłania i liczby zawsze w tym samym kolorze. Przy listach mnemotechniki 💡.</li>
+        <li>Skróty rozwinięte w notatce pod kartą.</li></ul></details>
+    </div>
+    <div class="uni reveal">
+      <h3>Nie studiujesz na WUM?</h3>
+      <p>Patomorfologia, mikrobiologia, fizjologia, biochemia i immunologia to na każdej polskiej uczelni ten sam materiał z tych samych podręczników. Inne bywają kolejność działów i nazwy kolokwiów.</p>
+      <p>Egzaminy WUM z 10 lat posłużyły mi do sprawdzenia, co jest naprawdę ważne. <b>Karty to wiedza z podręczników, a nie pytania z baz.</b> Dlatego działają też w Gdańsku, Krakowie, Łodzi czy Lublinie.</p>
+      <p>Masz wątpliwości? Pobierz darmową próbkę i porównaj ją ze swoim sylabusem.</p>
+    </div>
+  </div>
+</section>
+
 <section id="wyniki" class="center" style="background:linear-gradient(#000,#0b0b0d 50%,#000)">
   <div class="wrap">
     <h2 class="reveal">Zrobione przez kogoś,<br>kto z nich zdał.</h2>
@@ -250,6 +302,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
     <div class="faq">
       <details><summary>Jak zacząć?</summary><p>Po zakupie pobierasz plik .apkg, otwierasz Anki i wybierasz Plik → Importuj. Talia od razu jest gotowa do nauki.</p></details>
       <details><summary>Czy działa na telefonie?</summary><p>Tak. Plik importujesz do Anki na komputerze, AnkiDroid na Androidzie albo AnkiMobile na iPhonie – synchronizacja przez darmowe konto AnkiWeb.</p></details>
+      <details><summary>Studiuję poza WUM. Przyda mi się?</summary><p>Tak – materiał z pato, mikro, fizjo, biochemii i immuno jest wszędzie ten sam, inna bywa tylko kolejność. W Anki włączasz działy, które masz teraz. LEK jest wspólny dla wszystkich. Najpierw sprawdź darmową próbkę.</p></details>
       <details><summary>Nie znam Anki. Dam radę?</summary><p>Tak. Pobierz darmową próbkę i zrób kilka kart – w 5 minut zobaczysz, jak to działa. Anki samo decyduje, którą kartę i kiedy pokazać.</p></details>
     </div>
   </div>
