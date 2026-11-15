@@ -1,0 +1,140 @@
+<meta name="robots" content="noindex, nofollow">
+<title>CardForge – współpraca</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap">
+<style>
+/* Layout: jedna kolumna jak list z ofertą; karty Anki jako „dowód”, liczby prowizji jako tabela – reszta spokojna */
+:root{
+  --bg:#f6f6f8; --surface:#ffffff; --fg:#101114; --muted:#5d6170; --line:#e2e3ea;
+  --accent:#e0245e; --accent2:#2b6fd6; --ok:#1d8a52; --card:#ffffff; --cardfg:#15161a;
+  --display:"Space Grotesk",Inter,system-ui,sans-serif; --body:Inter,system-ui,-apple-system,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0b0b0d; --surface:#151519; --fg:#f3f3f6; --muted:#a3a6b3; --line:#26272e;
+  --accent:#ff5c8a; --accent2:#6aa6ff; --ok:#3ccf86; --card:#1c1c22; --cardfg:#f1f1f4; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0b0b0d; --surface:#151519; --fg:#f3f3f6; --muted:#a3a6b3; --line:#26272e;
+  --accent:#ff5c8a; --accent2:#6aa6ff; --ok:#3ccf86; --card:#1c1c22; --cardfg:#f1f1f4; color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.6;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:760px;margin:0 auto;padding-block:48px 64px;display:grid;gap:56px}
+h1,h2{font-family:var(--display);line-height:1.1;text-wrap:balance;margin:0}
+h1{font-size:clamp(34px,6vw,52px);letter-spacing:-.02em}
+h2{font-size:26px;letter-spacing:-.01em}
+p{margin:0}
+.eyebrow{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.lead{font-size:19px;color:var(--muted);max-width:62ch}
+section{display:grid;gap:18px}
+.facts{display:flex;flex-wrap:wrap;gap:10px}
+.chip{border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:14px;font-weight:600;background:var(--surface)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.anki{background:var(--card);color:var(--cardfg);border:1px solid var(--line);border-radius:18px;padding:18px;display:grid;gap:10px;min-width:0}
+.anki .tag{font-size:11px;font-weight:800;letter-spacing:.08em;color:var(--muted)}
+.anki .q{font-weight:700;font-size:16px;line-height:1.35}
+.anki .q b{color:var(--accent)}
+.anki hr{border:0;border-top:1px solid var(--line);margin:2px 0;width:100%}
+.anki .a{font-size:15px;line-height:1.45}
+.anki .a b{color:var(--ok)}
+.anki .note{font-size:13px;color:var(--muted)}
+table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+th,td{text-align:left;padding:11px 10px;border-bottom:1px solid var(--line)}
+th{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:700}
+td.num,th.num{text-align:right}
+td.earn{color:var(--ok);font-weight:700}
+.tbl{overflow-x:auto}
+.small{font-size:13px;color:var(--muted)}
+.res{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.res div{border-top:2px solid var(--fg);padding-top:10px}
+.res strong{display:block;font-family:var(--display);font-size:32px;line-height:1.1}
+.res span{font-size:14px;color:var(--muted)}
+blockquote{margin:0;padding:18px 20px;background:var(--surface);border:1px solid var(--line);border-radius:16px;font-size:16px}
+blockquote cite{display:block;margin-top:8px;font-style:normal;font-size:13px;color:var(--muted)}
+ol.steps{margin:0;padding:0;list-style:none;display:grid;gap:12px;counter-reset:s}
+ol.steps li{counter-increment:s;display:grid;grid-template-columns:36px 1fr;gap:12px;align-items:start}
+ol.steps li::before{content:counter(s);width:32px;height:32px;border-radius:50%;background:var(--fg);color:var(--bg);display:grid;place-items:center;font-weight:800;font-size:15px}
+ul.plain{margin:0;padding-left:20px;display:grid;gap:6px}
+.cta{background:var(--fg);color:var(--bg);border-radius:22px;padding:28px;display:grid;gap:10px}
+.cta h2{color:var(--bg)}
+.cta a{color:var(--bg);font-weight:700}
+a{color:var(--accent2)}
+a:focus-visible{outline:2px solid var(--accent2);outline-offset:2px}
+.faq{display:grid;gap:14px}
+.faq p b{display:block}
+</style>
+
+<div class="wrap">
+  <header style="display:grid;gap:16px">
+    <div class="eyebrow">CardForge · współpraca</div>
+    <h1>Fiszki Anki na medycynę. Szukam osób, które powiedzą o nich innym.</h1>
+    <p class="lead">Jestem studentem 3. roku WUM. Robię talie Anki z kolejnych przedmiotów i sprawdzam je z egzaminami WUM z lat 2015–2025. Materiał jest z podręczników, więc przydaje się na każdej uczelni. Proponuję prostą współpracę: dostajesz talię za darmo, a jeśli o niej wspomnisz, zarabiasz 20% od każdej sprzedaży z Twojego linku, a od 20. sprzedaży 25%.</p>
+    <div class="facts">
+      <span class="chip">6 przedmiotów</span><span class="chip">30 000+ fiszek</span><span class="chip">każda uczelnia</span><span class="chip">bez zobowiązań</span>
+    </div>
+  </header>
+
+  <section>
+    <h2>Jak wyglądają karty</h2>
+    <p class="small">Krótkie pytanie, jedna rzecz na kartę, odpowiedź w punktach. Tak to wygląda w Anki na telefonie.</p>
+    <div class="cards">
+      <div class="anki"><span class="tag">PATOMORFOLOGIA</span><div class="q">Jaki typ martwicy daje <b>zawał mózgu</b>?</div><hr><div class="a">Martwica <b>rozpływna</b> (enzymatyczna)</div></div>
+      <div class="anki"><span class="tag">IMMUNOLOGIA</span><div class="q">Która klasa przeciwciał <b>przechodzi przez łożysko</b>?</div><hr><div class="a"><b>IgG</b> (receptor FcRn)</div></div>
+      <div class="anki"><span class="tag">MIKROBIOLOGIA</span><div class="q">Jaki czynnik wirulencji <b>Streptococcus pneumoniae</b> jest najważniejszy?</div><hr><div class="a"><b>otoczka</b> polisacharydowa (chroni przed fagocytozą)</div><div class="note">💡 na niej opiera się szczepionka</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Co z tego masz</h2>
+    <ul class="plain">
+      <li><b>Darmowa talia</b> z przedmiotu, który Cię interesuje (także LEK), nawet jeśli nic nie opublikujesz.</li>
+      <li><b>20% prowizji</b> od każdej sprzedaży z Twojego linku, a <b>po 20 sprzedażach 25%</b> od każdej kolejnej. Wypłaca ją Gumroad bezpośrednio Tobie, a każdą sprzedaż widzisz na bieżąco.</li>
+      <li><b>Własny kod -10%</b> dla Twoich obserwujących, z Twoją nazwą.</li>
+      <li>Gotowe materiały: zrzuty kart, krótki opis i rolki, które możesz udostępnić.</li>
+    </ul>
+    <div class="tbl">
+      <table>
+        <thead><tr><th>Talia</th><th class="num">Cena</th><th class="num">20% na start</th><th class="num">25% od 20 sprzedaży</th></tr></thead>
+        <tbody>
+          <tr><td>Immunologia (~2900 fiszek)</td><td class="num">68 zł</td><td class="num earn">ok. 14 zł</td><td class="num earn">ok. 17 zł</td></tr>
+          <tr><td>Mikrobiologia</td><td class="num">77 zł</td><td class="num earn">ok. 15 zł</td><td class="num earn">ok. 19 zł</td></tr>
+          <tr><td>Fizjologia / Biochemia</td><td class="num">107 zł</td><td class="num earn">ok. 21 zł</td><td class="num earn">ok. 27 zł</td></tr>
+          <tr><td>Patomorfologia / LEK</td><td class="num">117 zł</td><td class="num earn">ok. 23 zł</td><td class="num earn">ok. 29 zł</td></tr>
+          <tr><td>Pakiet 3 rok</td><td class="num">157 zł</td><td class="num earn">ok. 31 zł</td><td class="num earn">ok. 39 zł</td></tr>
+          <tr><td>Pakiet 2 rok</td><td class="num">180 zł</td><td class="num earn">ok. 36 zł</td><td class="num earn">ok. 45 zł</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="small">Kwoty przed opłatami Gumroada. Przy kodzie -10% prowizja liczy się od ceny po rabacie.</p>
+  </section>
+
+  <section>
+    <h2>Dowody i opinie</h2>
+    <div class="res">
+      <div><strong>~90%</strong><span>pytań z egzaminów z mikro (2014–2025) ma odpowiedź w talii</span></div>
+      <div><strong>30 000+</strong><span>fiszek z 6 przedmiotów</span></div>
+      <div><strong>0 zł</strong><span>próbka dla Twoich obserwujących</span></div>
+    </div>
+    <blockquote>„Wszystko, czego potrzebuję do zaliczeń, mam w jednym miejscu. Gamechanger, jeżeli ktoś potrafi uczyć się z Anek…”<cite>Wojtek, 3 rok – talie z pato i mikro</cite></blockquote>
+    <blockquote>„Kupiłam biochemię tydzień przed ciężkim kolokwium. Szlaki wchodzą do głowy o wiele szybciej niż ze skryptów. W końcu ktoś to ułożył z głową.”<cite>Kupująca talii Biochemia, 2 rok</cite></blockquote>
+  </section>
+
+  <section>
+    <h2>Jak zacząć</h2>
+    <ol class="steps">
+      <li><div>Napisz, z którego przedmiotu chcesz talię. Wyślę ją od razu.</div></li>
+      <li><div>Jeśli Ci się spodoba, zapisz się do programu partnerskiego: <a href="https://cardforge.gumroad.com/affiliates">cardforge.gumroad.com/affiliates</a>. Dostaniesz własny link.</div></li>
+      <li><div>Wrzuć link do relacji, rolki albo bio, kiedy chcesz. Treść oznacz jako współpracę (#współpraca lub #reklama).</div></li>
+    </ol>
+  </section>
+
+  <section class="faq">
+    <h2>Najczęstsze pytania</h2>
+    <p><b>Ile postów muszę zrobić?</b>Żadnego. Wystarczy jedna relacja, jeśli uznasz, że warto.</p>
+    <p><b>Czy to tylko dla WUM?</b>Nie. Karty sprawdzam z egzaminami WUM, ale to wiedza z podręczników, która jest taka sama na każdej uczelni. Inna bywa tylko kolejność działów, a w Anki każdy włącza te, które ma. LEK jest wspólny dla wszystkich.</p>
+  </section>
+
+  <div class="cta">
+    <h2>Odpisz, z czego chcesz talię</h2>
+    <p>Instagram i TikTok: @cardforge_anki · strona: <a href="https://cardforge-anki.github.io/">cardforge-anki.github.io</a></p>
+  </div>
+</div>
