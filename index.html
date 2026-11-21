@@ -89,6 +89,7 @@ h2{font-size:clamp(36px,5.2vw,64px);line-height:1.05;letter-spacing:-.03em;font-
 .bundle{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:22px}
 @media(max-width:720px){.bundle{grid-template-columns:1fr}}
 .bundle .prod{min-height:260px;background:linear-gradient(160deg,#1d1d1f 0%,#111 100%);border:1px solid var(--line)}
+.badge{position:absolute;top:18px;right:18px;background:#ffd60a;color:#000;border-radius:980px;padding:5px 12px;font-size:12px;font-weight:800;letter-spacing:.02em;z-index:2}
 .save{display:inline-block;background:rgba(41,151,255,.15);color:var(--blue);border-radius:980px;padding:4px 12px;font-size:13px;font-weight:600;margin-top:12px}
 /* results */
 .res{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:60px}
@@ -128,7 +129,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
 
 <nav><div class="wrap">
   <a class="logo" href="#">CardForge <span>· Anki</span></a>
-  <div class="links"><a href="#talie">Talie</a><a href="#jak">Jak to działa</a><a href="#wyniki">Wyniki</a><a href="jak-uzywac-anki.html">Jak używać Anki</a><a href="wum.html">Dla WUM</a><a href="#faq">FAQ</a></div>
+  <div class="links"><a href="#talie">Talie</a><a href="#jak">Jak to działa</a><a href="#wyniki">Wyniki</a><a href="darmowe/">Darmowe talie</a><a href="poradnik/kolokwium-2-patomorfologia-wum.html">Kol. II pato</a><a href="jak-uzywac-anki.html">Jak używać Anki</a><a href="wum.html">Dla WUM</a><a href="#faq">FAQ</a></div>
   <a class="pill" href="https://cardforge.gumroad.com/l/probka">Darmowa próbka</a>
 </div></nav>
 
@@ -189,11 +190,11 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
     <div class="grid">
       <a class="prod reveal" href="https://cardforge.gumroad.com/l/ipfytw"><div class="halo" style="background:var(--pato)"></div>
         <div class="k" style="color:var(--pato)">3 ROK</div><h3>Patomorfologia</h3>
-        <p>~8400 fiszek, ogólna i szczegółowa, pod kolokwia I–V i egzamin.</p>
+        <p>~8700 kolorowych fiszek, ogólna i szczegółowa, pod kolokwia I–V i egzamin. 💡 100+ mnemotechnik.</p>
         <div class="meta"><div class="price">117 zł<small>z VAT</small></div><span class="buy">Kup</span></div></a>
-      <a class="prod reveal" href="https://cardforge.gumroad.com/l/dwbhp"><div class="halo" style="background:var(--mikro)"></div>
+      <a class="prod reveal" href="https://cardforge.gumroad.com/l/dwbhp"><span class="badge">🔥 Najczęściej kupowana</span><div class="halo" style="background:var(--mikro)"></div>
         <div class="k" style="color:var(--mikro)">3 ROK</div><h3>Mikrobiologia</h3>
-        <p>~3200 fiszek, bakteria po bakterii – chorobotwórczość, diagnostyka, leczenie.</p>
+        <p>~4000 fiszek, bakteria po bakterii – chorobotwórczość, diagnostyka, leczenie. 🧭 39 kart-schematów i 187 mnemotechnik.</p>
         <div class="meta"><div class="price">77 zł<small>z VAT</small></div><span class="buy">Kup</span></div></a>
       <a class="prod reveal" href="https://cardforge.gumroad.com/l/jixhif"><div class="halo" style="background:var(--fizjo)"></div>
         <div class="k" style="color:var(--fizjo)">2 ROK</div><h3>Fizjologia</h3>
@@ -209,16 +210,16 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
         <div class="meta"><div class="price">68 zł<small>z VAT</small></div><span class="buy">Kup</span></div></a>
       <a class="prod reveal" href="https://cardforge.gumroad.com/l/lek"><div class="halo" style="background:var(--lek)"></div>
         <div class="k" style="color:var(--lek)">LEK</div><h3>LEK</h3>
-        <p>~5400 fiszek z 10 dziedzin egzaminu – interna, pediatria, chirurgia, gin-poł i więcej.<br><b style="color:#fff">🎁 + 3035 oficjalnych pytań CEM z kluczem.</b></p>
+        <p>~5400 fiszek z 10 dziedzin egzaminu – interna, pediatria, chirurgia, gin-poł i więcej.<br><b style="color:#fff">🧠 + 3035 pytań CEM z wyjaśnieniem pod każdym.</b></p>
         <div class="meta"><div class="price">117 zł<small>z VAT</small></div><span class="buy">Kup</span></div></a>
       <a class="prod reveal" href="https://cardforge.gumroad.com/l/probka"><div class="halo" style="background:#fff;opacity:.18"></div>
         <div class="k" style="color:#fff">ZA DARMO</div><h3>Próbka</h3>
-        <p>Fiszki z każdego przedmiotu. Sprawdź styl kart w swoim Anki, zanim kupisz.</p>
+        <p>Fiszki z każdego przedmiotu. Sprawdź styl kart w swoim Anki, zanim kupisz. <span style="color:var(--blue)">Wszystkie darmowe talie: zakładka „Darmowe talie”.</span></p>
         <div class="meta"><div class="price">0 zł<small>na zawsze</small></div><span class="buy">Pobierz</span></div></a>
       <div class="bundle">
-        <a class="prod reveal" href="https://cardforge.gumroad.com/l/wcmomh"><div class="halo" style="background:linear-gradient(var(--pato),var(--mikro))"></div>
+        <a class="prod reveal" href="https://cardforge.gumroad.com/l/wcmomh"><span class="badge">💸 Najlepsza cena</span><div class="halo" style="background:linear-gradient(var(--pato),var(--mikro))"></div>
           <div class="k" style="color:var(--pato)">PAKIET</div><h3>3 rok. Komplet.</h3>
-          <p>Patomorfologia + Mikrobiologia, ~11 600 fiszek.</p><span class="save">taniej niż osobno</span>
+          <p>Patomorfologia + Mikrobiologia, ~11 600 fiszek.</p><span class="save">37 zł taniej niż osobno</span>
           <div class="meta"><div class="price">157 zł<small>z VAT</small></div><span class="buy">Kup pakiet</span></div></a>
         <a class="prod reveal" href="https://cardforge.gumroad.com/l/rnrgf"><div class="halo" style="background:linear-gradient(var(--fizjo),var(--bioch))"></div>
           <div class="k" style="color:var(--fizjo)">PAKIET</div><h3>2 rok. Komplet.</h3>
@@ -319,6 +320,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
 
 <footer><div class="wrap">
   <div>CardForge · fiszki Anki na medycynę · Płatności i pliki obsługuje Gumroad</div>
+  <div><a href="darmowe/">Darmowe talie</a> · <a href="poradnik/kolokwium-2-patomorfologia-wum.html">Poradnik: Kol. II z patomorfologii</a></div>
   <div>Kontakt: cardforge.wum@gmail.com · <a href="https://www.tiktok.com/@cardforge_anki">TikTok</a></div>
 </div></footer>
 

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://cardforge-anki.github.io/sitemap.xml
